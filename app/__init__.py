@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from .config import Config
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
@@ -18,5 +18,10 @@ bootstrap=Bootstrap(app)
 #registrar modulos(blueprints)
 app.register_blueprint(mi_blueprint)
 app.register_blueprint(productos)
+
+
+@app.route('/prueba')
+def prueba():
+    return render_template("base.html")
 
 from .models import Cliente,Venta,Producto,Detalle
