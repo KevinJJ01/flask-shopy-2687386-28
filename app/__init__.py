@@ -4,6 +4,7 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from .mi_blueprint import mi_blueprint
 from app.productos import productos 
+from app.clientes import clientes
 from flask_bootstrap import Bootstrap
 
 #inicializar el objeto flask
@@ -18,6 +19,8 @@ bootstrap=Bootstrap(app)
 #registrar modulos(blueprints)
 app.register_blueprint(mi_blueprint)
 app.register_blueprint(productos)
+app.register_blueprint(clientes)
+
 
 
 @app.route('/prueba')
