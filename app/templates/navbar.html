@@ -1,10 +1,19 @@
 
 <link rel="stylesheet" href="style.css">
+<li style="background-color: aquamarine; border-radius: 10px; margin: 20px; list-style: none; margin-left: 1000px; width: 100px; text-align: center ;" >{{current_user.username}}</li>
 <nav class="navbar navbar-light" style="background-color: #ffffff; margin: 10px; border-radius: 200px; padding-top: 10px; margin-bottom: 70px;">
     <div class="container">
     <ul class="nav navbar-nav" style="margin: 10px; ">
-        <li style="color: black;"><a style="color: black;" href="">Productos</a></li>
-        <li style="color: black;"><a style="color: black; " href="">Clientes</a></li>
+        
+        <li style="color: black;"><a style="color: black;" href="/productos/listar">Productos</a></li>
+        <li style="color: black;"><a style="color: black; " href="/clientes/createCliente">Clientes</a></li>
+        <li>
+            {% if current_user.is_authenticated %}
+            <a href="/auth/logout">Cerrar sesion</a>
+            {% else %}
+            <a href="/auth/login">Iniciar sesion</a>
+            {% endif %}
+        </li>
     </ul>
     </div>
 </nav>
